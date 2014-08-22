@@ -17,14 +17,18 @@ RUN apt-get update \
       pandoc \
       python2.7 \
       python-dev \
-      python-pip
+      python-pip \
       sqlite3 \
-      zlib1g-dev
+      zlib1g-dev \
+      libfreetype6-dev
 
 VOLUME /notebooks
 WORKDIR /notebooks
 
 RUN pip install ipython[notebook]
+RUN pip install pygments
+RUN pip install pandas
+RUN pip install matplotlib==1.3.1
 
 EXPOSE 8888
 
